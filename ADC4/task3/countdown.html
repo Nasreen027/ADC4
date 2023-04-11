@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+  #timer {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5% 10%;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+}
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
+<body>
+  <div class="container">
+    <div id="timer">05:00</div>
+
+  </div>
+
+<script>
+    let minutes = 5;
+let seconds = 0;
+
+let x = setInterval(function() {
+  // Decrement  second
+  seconds--;
+
+  // Decrement the minutes
+  if (seconds < 0) {
+    minutes--;
+    seconds = 59;
+  }
+
+  // Format minutes and seconds with leading zeros
+  let newminute = minutes < 10 ? "0" + minutes : minutes;
+  let newsecond = seconds < 10 ? "0" + seconds : seconds;
+
+  // Displaying remaining time in minutes and seconds
+  document.getElementById("timer").textContent = `${newminute}:${newsecond}`;
+
+  // If the count down is finished, clear the interval
+  if (minutes <= 0 && seconds <= 0) {
+    clearInterval(x);
+  }
+}, 1000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sort a HTML Table Alphabetically</title>
+<style>
+    table {
+        margin-top: 20px;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+</style>
+</head>
+<body>
+
+    <table id="myTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      
+      <script>
+        // Data retrieved from JSON
+const data = [
+  { name: 'Sara', age: 20, city: 'Islamabad' },
+  { name: 'Murtaza', age: 30, city: 'Lahore' },
+  { name: 'Ali', age: 20, city: 'Karachi' },
+  { name: 'Zimal', age: 22, city: 'Faislabad' }
+];
+
+// Function to generate table rows
+function generateTableRows(data) {
+  const tbody = document.querySelector('#myTable tbody');
+  tbody.innerHTML = '';
+  data.forEach(rowData => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${rowData.name}</td><td>${rowData.age}</td><td>${rowData.city}</td>`;
+    tbody.appendChild(row);
+  });
+}
+
+// Function to sort table by column
+function sortTable(columnIndex) {
+  const tbody = document.querySelector('#myTable tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const sortDirection = this.dataset.sort === 'asc' ? 'desc' : 'asc';
+  const multiplier = sortDirection === 'asc' ? 1 : -1;
+  rows.sort((rowA, rowB) => {
+    const cellA = rowA.querySelectorAll('td')[columnIndex].textContent;
+    const cellB = rowB.querySelectorAll('td')[columnIndex].textContent;
+    return cellA.localeCompare(cellB) * multiplier;
+  });
+  rows.forEach(row => tbody.appendChild(row));
+  this.dataset.sort = sortDirection;
+}
+
+// Initialize table
+generateTableRows(data);
+
+// Set click event listeners on column headers
+const headers = document.querySelectorAll('#myTable th');
+headers.forEach((header, index) => {
+  header.addEventListener('click', () => {
+    sortTable.call(header, index);
+  });
+});
+
+      </script>
+
+
+</body>
+</html>

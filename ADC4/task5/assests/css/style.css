@@ -1,0 +1,140 @@
+h1{
+    color: white;
+    font-family: sans-serif;
+}
+body{
+    background-color: black;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: url(../images/image4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:20%;
+    height: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px white;
+    transition: all 5s linear;
+    
+}
+
+.box:hover {
+    animation: animation1 10s 1s linear;
+}
+
+@keyframes animation1 {
+    0% {
+        /* transform: scale(1); */
+        background: url(../images/image1.jpg);
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    50% {
+        /* transform: scale(1.2); */
+        background: url(../images/image2.jpg);
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    100% {
+        /* transform: scale(1); */
+        background-color: #ffd700;
+        background: url(../images/image3.jpg);
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+}
+ /* click animation////////////// */
+ .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.click {
+    width:10%;
+    height: 100px;
+    background-color: #ffd700;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #ffd700;
+    transition: all 0.3s ease-in-out;
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 1px 1px #333;
+}
+
+.click:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #ffd700;
+}
+
+.click:active {
+    animation: animationclick 0.3s ease-in-out;
+}
+
+@keyframes animationclick {
+    0% {
+        transform: scale(1);
+        background-color: #ffd700;
+    }
+
+    50% {
+        transform: scale(1.2);
+        background-color: #333;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #ffd700;
+    }
+}
+/* three aniamtion////////// */
+.div {
+    width: 200px;
+    height: 200px;
+    background-color: plum;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .div:hover {
+    animation: animation3 0.5s ease-in-out;
+  }
+  @keyframes animation3 {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      background-color: blueviolet;
+      transform: scale(1.1) rotate(180deg);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+      background-color: rgb(160, 88, 228);
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  
